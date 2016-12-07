@@ -29,29 +29,31 @@ public class FrmInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
         inicio = new javax.swing.JDesktopPane();
         lblUsuario = new javax.swing.JLabel();
         lblUsr = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnInicio = new javax.swing.JMenu();
         mnCoordinador = new javax.swing.JMenu();
+        mnIConsultaPersonalCoor = new javax.swing.JMenuItem();
         mnInstructor = new javax.swing.JMenu();
+        mnICursosInst = new javax.swing.JMenuItem();
+        mnIProgramasInst = new javax.swing.JMenuItem();
+        mnIRegistroCalificacion = new javax.swing.JMenuItem();
+        mnIConsultaCapacitacionInst = new javax.swing.JMenuItem();
+        mnIConsultaPersonalInst = new javax.swing.JMenuItem();
         mnAcademico = new javax.swing.JMenu();
-        mnConsultas = new javax.swing.JMenu();
-        mnIConsultaPersonal = new javax.swing.JMenuItem();
-        mnIConsultaCargos = new javax.swing.JMenuItem();
-        mnIConsultaInstructores = new javax.swing.JMenuItem();
-        mnIConsultaProgramas = new javax.swing.JMenuItem();
-        mnIConsultaCapacitacion = new javax.swing.JMenuItem();
-        mnIConsultaCurso = new javax.swing.JMenuItem();
+        mnIConsultaCapacitacionAcad = new javax.swing.JMenuItem();
+        mnIConsultaProgramasAcad = new javax.swing.JMenuItem();
+        mnIConsultaCursoAcad = new javax.swing.JMenuItem();
+        mnIConsultaPersonalAcad = new javax.swing.JMenuItem();
         mnConfig = new javax.swing.JMenu();
-        mnIUsuarios = new javax.swing.JMenuItem();
+        mnIPersonal = new javax.swing.JMenuItem();
+        mnICargos = new javax.swing.JMenuItem();
         mnSalir = new javax.swing.JMenu();
 
-        jMenu1.setText("jMenu1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 700));
 
         inicio.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -70,7 +72,7 @@ public class FrmInicio extends javax.swing.JFrame {
         inicioLayout.setHorizontalGroup(
             inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inicioLayout.createSequentialGroup()
-                .addContainerGap(591, Short.MAX_VALUE)
+                .addContainerGap(1341, Short.MAX_VALUE)
                 .addComponent(lblUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -82,11 +84,12 @@ public class FrmInicio extends javax.swing.JFrame {
                 .addGroup(inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblUsuario)
                     .addComponent(lblUsr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(381, Short.MAX_VALUE))
+                .addContainerGap(786, Short.MAX_VALUE))
         );
 
         mnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Home.png"))); // NOI18N
         mnInicio.setText("Inicio");
+        mnInicio.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         mnInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnInicioMouseClicked(evt);
@@ -96,71 +99,126 @@ public class FrmInicio extends javax.swing.JFrame {
 
         mnCoordinador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mnuCoordinador.png"))); // NOI18N
         mnCoordinador.setText("Coordinador");
+        mnCoordinador.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+
+        mnIConsultaPersonalCoor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaPersonalCoor.setText("Consulta Personal");
+        mnIConsultaPersonalCoor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaPersonalCoorActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIConsultaPersonalCoor);
+
         jMenuBar1.add(mnCoordinador);
 
         mnInstructor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mnuInstructor.png"))); // NOI18N
         mnInstructor.setText("Instructor");
+        mnInstructor.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+
+        mnICursosInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cursos.jpg"))); // NOI18N
+        mnICursosInst.setText("Cursos");
+        mnICursosInst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnICursosInstActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnICursosInst);
+
+        mnIProgramasInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/programas.png"))); // NOI18N
+        mnIProgramasInst.setText("Programas");
+        mnIProgramasInst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIProgramasInstActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnIProgramasInst);
+
+        mnIRegistroCalificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calificacion.png"))); // NOI18N
+        mnIRegistroCalificacion.setText("Registro calificación");
+        mnIRegistroCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIRegistroCalificacionActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnIRegistroCalificacion);
+
+        mnIConsultaCapacitacionInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
+        mnIConsultaCapacitacionInst.setText("Consulta Capacitaciones");
+        mnIConsultaCapacitacionInst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaCapacitacionInstActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnIConsultaCapacitacionInst);
+
+        mnIConsultaPersonalInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaPersonalInst.setText("Consulta Personal");
+        mnIConsultaPersonalInst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaPersonalInstActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnIConsultaPersonalInst);
+
         jMenuBar1.add(mnInstructor);
 
         mnAcademico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mnuAcademico.png"))); // NOI18N
         mnAcademico.setText("Académico");
+        mnAcademico.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+
+        mnIConsultaCapacitacionAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
+        mnIConsultaCapacitacionAcad.setText("Consulta Capacitaciones");
+        mnAcademico.add(mnIConsultaCapacitacionAcad);
+
+        mnIConsultaProgramasAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/programas.png"))); // NOI18N
+        mnIConsultaProgramasAcad.setText("Consulta Programas");
+        mnAcademico.add(mnIConsultaProgramasAcad);
+
+        mnIConsultaCursoAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cursos.jpg"))); // NOI18N
+        mnIConsultaCursoAcad.setText("Consulta Cursos");
+        mnAcademico.add(mnIConsultaCursoAcad);
+
+        mnIConsultaPersonalAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaPersonalAcad.setText("Consulta Personal");
+        mnIConsultaPersonalAcad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaPersonalAcadActionPerformed(evt);
+            }
+        });
+        mnAcademico.add(mnIConsultaPersonalAcad);
+
         jMenuBar1.add(mnAcademico);
 
-        mnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultas.png"))); // NOI18N
-        mnConsultas.setText("Consultas");
-        mnConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnConsultasMouseClicked(evt);
-            }
-        });
+        mnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/configuracion.png"))); // NOI18N
+        mnConfig.setText("Administración");
+        mnConfig.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
 
-        mnIConsultaPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
-        mnIConsultaPersonal.setText("Consulta Personal");
-        mnIConsultaPersonal.addActionListener(new java.awt.event.ActionListener() {
+        mnIPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarios.png"))); // NOI18N
+        mnIPersonal.setText("Personal");
+        mnIPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnIConsultaPersonalActionPerformed(evt);
+                mnIPersonalActionPerformed(evt);
             }
         });
-        mnConsultas.add(mnIConsultaPersonal);
+        mnConfig.add(mnIPersonal);
 
-        mnIConsultaCargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCargo.png"))); // NOI18N
-        mnIConsultaCargos.setText("Consulta Cargos");
-        mnConsultas.add(mnIConsultaCargos);
-
-        mnIConsultaInstructores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaInstructores.png"))); // NOI18N
-        mnIConsultaInstructores.setText("Consulta Instructores");
-        mnConsultas.add(mnIConsultaInstructores);
-
-        mnIConsultaProgramas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaProgramas.png"))); // NOI18N
-        mnIConsultaProgramas.setText("Consulta Programas");
-        mnConsultas.add(mnIConsultaProgramas);
-
-        mnIConsultaCapacitacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
-        mnIConsultaCapacitacion.setText("Consulta Capacitaciones");
-        mnConsultas.add(mnIConsultaCapacitacion);
-
-        mnIConsultaCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCurso.jpg"))); // NOI18N
-        mnIConsultaCurso.setText("Consulta Cursos");
-        mnConsultas.add(mnIConsultaCurso);
-
-        jMenuBar1.add(mnConsultas);
-
-        mnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/config.png"))); // NOI18N
-        mnConfig.setText("Configuración");
-
-        mnIUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarios.png"))); // NOI18N
-        mnIUsuarios.setText("Usuarios");
-        mnIUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        mnICargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cargos.png"))); // NOI18N
+        mnICargos.setText("Cargos");
+        mnICargos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnIUsuariosActionPerformed(evt);
+                mnICargosActionPerformed(evt);
             }
         });
-        mnConfig.add(mnIUsuarios);
+        mnConfig.add(mnICargos);
 
         jMenuBar1.add(mnConfig);
 
         mnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logout2.png"))); // NOI18N
         mnSalir.setText("Salir");
+        mnSalir.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        mnSalir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mnSalir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         mnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnSalirMouseClicked(evt);
@@ -178,21 +236,17 @@ public class FrmInicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inicio)
+            .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    FrmConsultaPersonal frmConsultaPersonal = new FrmConsultaPersonal();
+    FrmRegistroPuntajes frmConsultaPersonal = new FrmRegistroPuntajes();
     
     private void mnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSalirMouseClicked
         this.dispose();
     }//GEN-LAST:event_mnSalirMouseClicked
-
-    private void mnConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnConsultasMouseClicked
-
-    }//GEN-LAST:event_mnConsultasMouseClicked
 
     private void mnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnInicioMouseClicked
 
@@ -201,20 +255,63 @@ public class FrmInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnInicioMouseClicked
 
-    private void mnIUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIUsuariosActionPerformed
+    private void mnIPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIPersonalActionPerformed
 
         FrmUsuarios frmusuarios = new FrmUsuarios();
         inicio.add(frmusuarios);
         frmusuarios.toFront();
         frmusuarios.setVisible(true);
-    }//GEN-LAST:event_mnIUsuariosActionPerformed
+    }//GEN-LAST:event_mnIPersonalActionPerformed
 
-    private void mnIConsultaPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalActionPerformed
+    private void mnIConsultaPersonalCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalCoorActionPerformed
 
         inicio.add(frmConsultaPersonal);
         frmConsultaPersonal.toFront();
         frmConsultaPersonal.setVisible(true);
-    }//GEN-LAST:event_mnIConsultaPersonalActionPerformed
+    }//GEN-LAST:event_mnIConsultaPersonalCoorActionPerformed
+
+    private void mnIConsultaPersonalInstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalInstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnIConsultaPersonalInstActionPerformed
+
+    private void mnIConsultaPersonalAcadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalAcadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnIConsultaPersonalAcadActionPerformed
+
+    private void mnICargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnICargosActionPerformed
+        FrmCargos frmcargos = new FrmCargos();
+        inicio.add(frmcargos);
+        frmcargos.toFront();
+        frmcargos.setVisible(true);
+    }//GEN-LAST:event_mnICargosActionPerformed
+
+    private void mnICursosInstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnICursosInstActionPerformed
+        FrmCursos frmcursos = new FrmCursos();
+        inicio.add(frmcursos);
+        frmcursos.toFront();
+        frmcursos.setVisible(true);
+    }//GEN-LAST:event_mnICursosInstActionPerformed
+
+    private void mnIProgramasInstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIProgramasInstActionPerformed
+        FrmProgramas frmprogramas = new FrmProgramas();
+        inicio.add(frmprogramas);
+        frmprogramas.toFront();
+        frmprogramas.setVisible(true);
+    }//GEN-LAST:event_mnIProgramasInstActionPerformed
+
+    private void mnIRegistroCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIRegistroCalificacionActionPerformed
+        FrmRegistroPuntajes frmregistropuntajes = new FrmRegistroPuntajes();
+        inicio.add(frmregistropuntajes);
+        frmregistropuntajes.toFront();
+        frmregistropuntajes.setVisible(true);
+    }//GEN-LAST:event_mnIRegistroCalificacionActionPerformed
+
+    private void mnIConsultaCapacitacionInstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaCapacitacionInstActionPerformed
+        FrmConsultaCapacitaciones frmconsultcapacitaciones = new FrmConsultaCapacitaciones();
+        inicio.add(frmconsultcapacitaciones);
+        frmconsultcapacitaciones.toFront();
+        frmconsultcapacitaciones.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaCapacitacionInstActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,21 +350,24 @@ public class FrmInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane inicio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JLabel lblUsr;
     private javax.swing.JLabel lblUsuario;
     public static javax.swing.JMenu mnAcademico;
     public static javax.swing.JMenu mnConfig;
-    public static javax.swing.JMenu mnConsultas;
     public static javax.swing.JMenu mnCoordinador;
-    public static javax.swing.JMenuItem mnIConsultaCapacitacion;
-    public static javax.swing.JMenuItem mnIConsultaCargos;
-    public static javax.swing.JMenuItem mnIConsultaCurso;
-    public static javax.swing.JMenuItem mnIConsultaInstructores;
-    public static javax.swing.JMenuItem mnIConsultaPersonal;
-    public static javax.swing.JMenuItem mnIConsultaProgramas;
-    public static javax.swing.JMenuItem mnIUsuarios;
+    private javax.swing.JMenuItem mnICargos;
+    public static javax.swing.JMenuItem mnIConsultaCapacitacionAcad;
+    public static javax.swing.JMenuItem mnIConsultaCapacitacionInst;
+    public static javax.swing.JMenuItem mnIConsultaCursoAcad;
+    public static javax.swing.JMenuItem mnIConsultaPersonalAcad;
+    public static javax.swing.JMenuItem mnIConsultaPersonalCoor;
+    public static javax.swing.JMenuItem mnIConsultaPersonalInst;
+    public static javax.swing.JMenuItem mnIConsultaProgramasAcad;
+    private javax.swing.JMenuItem mnICursosInst;
+    public static javax.swing.JMenuItem mnIPersonal;
+    private javax.swing.JMenuItem mnIProgramasInst;
+    private javax.swing.JMenuItem mnIRegistroCalificacion;
     public static javax.swing.JMenu mnInicio;
     public static javax.swing.JMenu mnInstructor;
     public static javax.swing.JMenu mnSalir;

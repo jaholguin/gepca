@@ -1,13 +1,20 @@
 package gepca.controlador;
 
+import java.util.Date;
+
 /**
  *
  * @author JorgeAndres
  */
 public class CUsuario {
     
-    String perfil;
+    String cedula;
     String nombre;
+    String apellido;
+    String telefono;
+    String correo;
+    Date fechaIngreso;
+    String perfil;
     String usuario;
     String password;
     String estado;
@@ -15,20 +22,25 @@ public class CUsuario {
    public CUsuario() {
    }
 
-   public CUsuario(String perfil,String nombre, String usuario, String password, String estado) {
-       this.perfil = perfil;
+   public CUsuario(String cedula, String nombre, String apellido, String telefono, String correo, Date fechaIngreso, String perfil, String usuario, String password, String estado) {
+       this.cedula = cedula;
        this.nombre = nombre;
+       this.apellido = apellido;
+       this.telefono = telefono;
+       this.correo = correo;
+       this.fechaIngreso = fechaIngreso;
+       this.perfil = perfil;
        this.usuario = usuario;
        this.password = password;
        this.estado = estado;
    }
    
-   public String getPerfil() {
-       return perfil;
+   public String getCedula() {
+       return cedula;
    }
 
-   public void setPerfil(String perfil) {
-       this.perfil = perfil;
+   public void setCedula(String cedula) {
+       this.cedula = cedula;
    }
 
    public String getNombre() {
@@ -37,6 +49,46 @@ public class CUsuario {
 
    public void setNombre(String nombre) {
        this.nombre = nombre;
+   }
+   
+   public String getApellido() {
+       return apellido;
+   }
+
+   public void setApellido(String apellido) {
+       this.apellido = apellido;
+   }
+   
+   public String getTelefono() {
+       return telefono;
+   }
+
+   public void setTelefono(String telefono) {
+       this.telefono = telefono;
+   }
+   
+   public String getCorreo() {
+       return correo;
+   }
+
+   public void setCorreo(String correo) {
+       this.correo = correo;
+   }
+   
+   public Date getFechaIngreso() {
+       return fechaIngreso;
+   }
+
+   public void setFechaIngreso(Date fechaIngreso) {
+       this.fechaIngreso = fechaIngreso;
+   }
+   
+   public String getPerfil() {
+       return perfil;
+   }
+
+   public void setPerfil(String perfil) {
+       this.perfil = perfil;
    }
    
    public String getUsuario() {

@@ -45,6 +45,8 @@ public class FrmLogin extends javax.swing.JFrame {
         tablaUsuarios = new javax.swing.JTable();
         lblImagenLogin = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
+        cbUsrPerfil = new javax.swing.JComboBox<>();
+        lblPerfil = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -53,7 +55,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblUsuario.setText("Usuario:");
 
-        txtPass.setText("admin123");
+        txtPass.setText("1234");
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassKeyPressed(evt);
@@ -98,57 +100,67 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.jpg"))); // NOI18N
 
-        txtUsuario.setText("admin");
+        txtUsuario.setText("ADM");
+
+        cbUsrPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACADEMICO", "ADMINISTRADOR", "COORDINADOR", "INSTRUCTOR", "PERSONAL" }));
+        cbUsrPerfil.setSelectedIndex(1);
+
+        lblPerfil.setText("Perfil:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(lblImagenLogin)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPass)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnIngresar)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalir)
                         .addGap(46, 46, 46))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUsuario)
-                        .addGap(38, 38, 38)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPerfil, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbUsrPerfil, 0, 146, Short.MAX_VALUE)
+                            .addComponent(txtPass)
+                            .addComponent(txtUsuario))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImagenLogin)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblUsuario)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblPass))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(lblImagenLogin)))
+                            .addComponent(lblPerfil)
+                            .addComponent(cbUsrPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblPass))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalir)
                     .addComponent(btnIngresar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         lblUsuario.getAccessibleContext().setAccessibleName("");
@@ -181,25 +193,27 @@ public class FrmLogin extends javax.swing.JFrame {
             MUsuario musr = new MUsuario();
             CUsuario dusr = new CUsuario();
             String user = txtUsuario.getText();
+            String perfil = cbUsrPerfil.getSelectedItem().toString();
             @SuppressWarnings("deprecation")
             String pass = txtPass.getText();
             dusr.setUsuario(user);
+            dusr.setPerfil(perfil);
             dusr.setPassword(pass);
-            modelo = musr.login(dusr.getUsuario(),dusr.getPassword());
+            modelo = musr.login(dusr.getPerfil(), dusr.getUsuario(), dusr.getPassword());
             tablaUsuarios.setModel(modelo);
-            if (musr.totalregistros >0) {
+            if (musr.totalregistros > 0) {
                 this.dispose();
 		FrmInicio inicio = new FrmInicio();
 		inicio.toFront();
 		inicio.setVisible(true);
 		FrmInicio.lblUsr.setText(user);
-		if (!FrmInicio.lblUsr.getText().equals("academico")) {
-                    FrmInicio.mnConsultas.setEnabled(true);
+		if (!perfil.equals("ACADEMICO")) {
+                    FrmInicio.mnAcademico.setEnabled(true);
                 }else{
                     FrmInicio.mnConfig.setEnabled(false);
                     FrmInicio.mnCoordinador.setEnabled(false);
                     FrmInicio.mnInstructor.setEnabled(false);
-                    FrmInicio.mnIConsultaPersonal.setEnabled(false);
+                    FrmInicio.mnIConsultaPersonalCoor.setEnabled(false);
 		}
             } 
             else {
@@ -249,10 +263,12 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbUsrPerfil;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblImagenLogin;
     private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblPerfil;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tablaUsuarios;
     private javax.swing.JPasswordField txtPass;

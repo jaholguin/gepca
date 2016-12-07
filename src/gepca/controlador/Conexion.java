@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     
-    public String db = "bds_gepca";
+    public String db = "bd_gepca";
     public String url = "jdbc:mysql://127.0.0.1/" + db;
     public String user = "root";
     public String pass = "root";
