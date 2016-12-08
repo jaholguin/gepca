@@ -15,7 +15,6 @@ public class CCapacitacion {
    }
 
    public CCapacitacion(String idCurso, String puntaje, String cedula) {
-       this.idMatricula = idMatricula;
        this.idCurso = idCurso;
        this.puntaje = puntaje;
        this.cedula = cedula;

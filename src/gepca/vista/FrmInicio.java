@@ -35,7 +35,13 @@ public class FrmInicio extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnInicio = new javax.swing.JMenu();
         mnCoordinador = new javax.swing.JMenu();
+        mnIRegistroCargoHis = new javax.swing.JMenuItem();
+        mnIRegistroVacaciones = new javax.swing.JMenuItem();
+        mnIConsultaCapacitacionCoor = new javax.swing.JMenuItem();
+        mnIConsultaPNoDisp = new javax.swing.JMenuItem();
+        mnIConsultaPDisp = new javax.swing.JMenuItem();
         mnIConsultaPersonalCoor = new javax.swing.JMenuItem();
+        mnIConsultaCargosHis = new javax.swing.JMenuItem();
         mnInstructor = new javax.swing.JMenu();
         mnICursosInst = new javax.swing.JMenuItem();
         mnIProgramasInst = new javax.swing.JMenuItem();
@@ -53,7 +59,6 @@ public class FrmInicio extends javax.swing.JFrame {
         mnSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 700));
 
         inicio.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -101,14 +106,68 @@ public class FrmInicio extends javax.swing.JFrame {
         mnCoordinador.setText("Coordinador");
         mnCoordinador.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
 
+        mnIRegistroCargoHis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calificacion.png"))); // NOI18N
+        mnIRegistroCargoHis.setText("Registro Histórico Cargo");
+        mnIRegistroCargoHis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIRegistroCargoHisActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIRegistroCargoHis);
+
+        mnIRegistroVacaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vacaciones.png"))); // NOI18N
+        mnIRegistroVacaciones.setText("Registro Vacaciones");
+        mnIRegistroVacaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIRegistroVacacionesActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIRegistroVacaciones);
+
+        mnIConsultaCapacitacionCoor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
+        mnIConsultaCapacitacionCoor.setText("Consulta Capacitaciones");
+        mnIConsultaCapacitacionCoor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaCapacitacionCoorActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIConsultaCapacitacionCoor);
+
+        mnIConsultaPNoDisp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaPNoDisp.setText("Consulta Personal No Disponible");
+        mnIConsultaPNoDisp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaPNoDispActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIConsultaPNoDisp);
+
+        mnIConsultaPDisp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaPDisp.setText("Consulta Personal Disponible");
+        mnIConsultaPDisp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaPDispActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIConsultaPDisp);
+
         mnIConsultaPersonalCoor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
-        mnIConsultaPersonalCoor.setText("Consulta Personal");
+        mnIConsultaPersonalCoor.setText("Consulta Personal En Entrenamiento");
         mnIConsultaPersonalCoor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnIConsultaPersonalCoorActionPerformed(evt);
             }
         });
         mnCoordinador.add(mnIConsultaPersonalCoor);
+
+        mnIConsultaCargosHis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
+        mnIConsultaCargosHis.setText("Consulta Histórico Cargos");
+        mnIConsultaCargosHis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaCargosHisActionPerformed(evt);
+            }
+        });
+        mnCoordinador.add(mnIConsultaCargosHis);
 
         jMenuBar1.add(mnCoordinador);
 
@@ -169,14 +228,29 @@ public class FrmInicio extends javax.swing.JFrame {
 
         mnIConsultaCapacitacionAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
         mnIConsultaCapacitacionAcad.setText("Consulta Capacitaciones");
+        mnIConsultaCapacitacionAcad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaCapacitacionAcadActionPerformed(evt);
+            }
+        });
         mnAcademico.add(mnIConsultaCapacitacionAcad);
 
         mnIConsultaProgramasAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/programas.png"))); // NOI18N
         mnIConsultaProgramasAcad.setText("Consulta Programas");
+        mnIConsultaProgramasAcad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaProgramasAcadActionPerformed(evt);
+            }
+        });
         mnAcademico.add(mnIConsultaProgramasAcad);
 
         mnIConsultaCursoAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cursos.jpg"))); // NOI18N
         mnIConsultaCursoAcad.setText("Consulta Cursos");
+        mnIConsultaCursoAcad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIConsultaCursoAcadActionPerformed(evt);
+            }
+        });
         mnAcademico.add(mnIConsultaCursoAcad);
 
         mnIConsultaPersonalAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
@@ -263,19 +337,25 @@ public class FrmInicio extends javax.swing.JFrame {
         frmusuarios.setVisible(true);
     }//GEN-LAST:event_mnIPersonalActionPerformed
 
-    private void mnIConsultaPersonalCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalCoorActionPerformed
-
-        inicio.add(frmConsultaPersonal);
-        frmConsultaPersonal.toFront();
-        frmConsultaPersonal.setVisible(true);
-    }//GEN-LAST:event_mnIConsultaPersonalCoorActionPerformed
+    private void mnIConsultaPNoDispActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPNoDispActionPerformed
+        FrmConsultaPNoDisp frmpersonanodisp = new FrmConsultaPNoDisp();
+        inicio.add(frmpersonanodisp);
+        frmpersonanodisp.toFront();
+        frmpersonanodisp.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaPNoDispActionPerformed
 
     private void mnIConsultaPersonalInstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalInstActionPerformed
-        // TODO add your handling code here:
+        FrmConsultaPInstructor frmconsultpersonalinst = new FrmConsultaPInstructor();
+        inicio.add(frmconsultpersonalinst);
+        frmconsultpersonalinst.toFront();
+        frmconsultpersonalinst.setVisible(true);
     }//GEN-LAST:event_mnIConsultaPersonalInstActionPerformed
 
     private void mnIConsultaPersonalAcadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalAcadActionPerformed
-        // TODO add your handling code here:
+        FrmConsultaPersonalAcad frmconsultpersonalacad = new FrmConsultaPersonalAcad();
+        inicio.add(frmconsultpersonalacad);
+        frmconsultpersonalacad.toFront();
+        frmconsultpersonalacad.setVisible(true);
     }//GEN-LAST:event_mnIConsultaPersonalAcadActionPerformed
 
     private void mnICargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnICargosActionPerformed
@@ -312,6 +392,69 @@ public class FrmInicio extends javax.swing.JFrame {
         frmconsultcapacitaciones.toFront();
         frmconsultcapacitaciones.setVisible(true);
     }//GEN-LAST:event_mnIConsultaCapacitacionInstActionPerformed
+
+    private void mnIConsultaPDispActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPDispActionPerformed
+        FrmConsultaPDisp frmpersonadisp = new FrmConsultaPDisp();
+        inicio.add(frmpersonadisp);
+        frmpersonadisp.toFront();
+        frmpersonadisp.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaPDispActionPerformed
+
+    private void mnIConsultaCapacitacionCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaCapacitacionCoorActionPerformed
+        FrmConsultaCapacitaciones frmconsultcapacitaciones = new FrmConsultaCapacitaciones();
+        inicio.add(frmconsultcapacitaciones);
+        frmconsultcapacitaciones.toFront();
+        frmconsultcapacitaciones.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaCapacitacionCoorActionPerformed
+
+    private void mnIConsultaPersonalCoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaPersonalCoorActionPerformed
+        FrmConsultaPInstructor frmconsultpersonalinst = new FrmConsultaPInstructor();
+        inicio.add(frmconsultpersonalinst);
+        frmconsultpersonalinst.toFront();
+        frmconsultpersonalinst.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaPersonalCoorActionPerformed
+
+    private void mnIConsultaCargosHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaCargosHisActionPerformed
+        FrmConsultaCargoHis frmconsultcargoshis = new FrmConsultaCargoHis();
+        inicio.add(frmconsultcargoshis);
+        frmconsultcargoshis.toFront();
+        frmconsultcargoshis.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaCargosHisActionPerformed
+
+    private void mnIRegistroCargoHisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIRegistroCargoHisActionPerformed
+        FrmRegistroCargoHis frmregistrocargoshis = new FrmRegistroCargoHis();
+        inicio.add(frmregistrocargoshis);
+        frmregistrocargoshis.toFront();
+        frmregistrocargoshis.setVisible(true);
+    }//GEN-LAST:event_mnIRegistroCargoHisActionPerformed
+
+    private void mnIRegistroVacacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIRegistroVacacionesActionPerformed
+        FrmRegistroVacaciones frmregistrovacaciones = new FrmRegistroVacaciones();
+        inicio.add(frmregistrovacaciones);
+        frmregistrovacaciones.toFront();
+        frmregistrovacaciones.setVisible(true);
+    }//GEN-LAST:event_mnIRegistroVacacionesActionPerformed
+
+    private void mnIConsultaCapacitacionAcadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaCapacitacionAcadActionPerformed
+        FrmConsultaCapacitacionesUsr frmconsultcapacitacionesusr = new FrmConsultaCapacitacionesUsr();
+        inicio.add(frmconsultcapacitacionesusr);
+        frmconsultcapacitacionesusr.toFront();
+        frmconsultcapacitacionesusr.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaCapacitacionAcadActionPerformed
+
+    private void mnIConsultaProgramasAcadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaProgramasAcadActionPerformed
+        FrmConsultaProgramaAcad frmconsultprogramaacad = new FrmConsultaProgramaAcad();
+        inicio.add(frmconsultprogramaacad);
+        frmconsultprogramaacad.toFront();
+        frmconsultprogramaacad.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaProgramasAcadActionPerformed
+
+    private void mnIConsultaCursoAcadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIConsultaCursoAcadActionPerformed
+        FrmConsultaCursoAcad frmconsultcursoacad = new FrmConsultaCursoAcad();
+        inicio.add(frmconsultcursoacad);
+        frmconsultcursoacad.toFront();
+        frmconsultcursoacad.setVisible(true);
+    }//GEN-LAST:event_mnIConsultaCursoAcadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,8 +501,12 @@ public class FrmInicio extends javax.swing.JFrame {
     public static javax.swing.JMenu mnCoordinador;
     private javax.swing.JMenuItem mnICargos;
     public static javax.swing.JMenuItem mnIConsultaCapacitacionAcad;
+    public static javax.swing.JMenuItem mnIConsultaCapacitacionCoor;
     public static javax.swing.JMenuItem mnIConsultaCapacitacionInst;
+    public static javax.swing.JMenuItem mnIConsultaCargosHis;
     public static javax.swing.JMenuItem mnIConsultaCursoAcad;
+    public static javax.swing.JMenuItem mnIConsultaPDisp;
+    public static javax.swing.JMenuItem mnIConsultaPNoDisp;
     public static javax.swing.JMenuItem mnIConsultaPersonalAcad;
     public static javax.swing.JMenuItem mnIConsultaPersonalCoor;
     public static javax.swing.JMenuItem mnIConsultaPersonalInst;
@@ -368,6 +515,8 @@ public class FrmInicio extends javax.swing.JFrame {
     public static javax.swing.JMenuItem mnIPersonal;
     private javax.swing.JMenuItem mnIProgramasInst;
     private javax.swing.JMenuItem mnIRegistroCalificacion;
+    private javax.swing.JMenuItem mnIRegistroCargoHis;
+    private javax.swing.JMenuItem mnIRegistroVacaciones;
     public static javax.swing.JMenu mnInicio;
     public static javax.swing.JMenu mnInstructor;
     public static javax.swing.JMenu mnSalir;
