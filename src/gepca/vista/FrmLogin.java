@@ -207,13 +207,35 @@ public class FrmLogin extends javax.swing.JFrame {
 		inicio.toFront();
 		inicio.setVisible(true);
 		FrmInicio.lblUsr.setText(user);
-		if (!perfil.equals("ACADEMICO")) {
+		if (perfil.equals("ACADEMICO")) {
                     FrmInicio.mnAcademico.setEnabled(true);
-                }else{
                     FrmInicio.mnConfig.setEnabled(false);
                     FrmInicio.mnCoordinador.setEnabled(false);
                     FrmInicio.mnInstructor.setEnabled(false);
-                    FrmInicio.mnIConsultaPNoDisp.setEnabled(false);
+		}
+                if (perfil.equals("PERSONAL")) {
+                    FrmInicio.mnAcademico.setEnabled(true);
+                    FrmInicio.mnConfig.setEnabled(false);
+                    FrmInicio.mnCoordinador.setEnabled(false);
+                    FrmInicio.mnInstructor.setEnabled(false);
+		}
+                if (perfil.equals("INSTRUCTOR")) {
+                    FrmInicio.mnInstructor.setEnabled(true);
+                    FrmInicio.mnConfig.setEnabled(false);
+                    FrmInicio.mnCoordinador.setEnabled(false);
+                    FrmInicio.mnAcademico.setEnabled(false);
+		}
+                if (perfil.equals("COORDINADOR")) {
+                    FrmInicio.mnCoordinador.setEnabled(true);
+                    FrmInicio.mnConfig.setEnabled(false);
+                    FrmInicio.mnInstructor.setEnabled(false);
+                    FrmInicio.mnAcademico.setEnabled(false);
+		}
+                if (perfil.equals("ADMINISTRADOR")) {
+                    FrmInicio.mnCoordinador.setEnabled(true);
+                    FrmInicio.mnConfig.setEnabled(true);
+                    FrmInicio.mnInstructor.setEnabled(true);
+                    FrmInicio.mnAcademico.setEnabled(true);
 		}
             } 
             else {
