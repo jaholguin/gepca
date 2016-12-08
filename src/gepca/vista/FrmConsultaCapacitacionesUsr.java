@@ -1,24 +1,24 @@
 package gepca.vista;
 
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import gepca.modelo.MEntrenamiento;
+import gepca.modelo.MCapacitacion;
+import gepca.modelo.MUsuario;
 
 /**
  *
  * @author JorgeAndres
  */
-public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
+public class FrmConsultaCapacitacionesUsr extends javax.swing.JInternalFrame {
     
-    private String action = "save";
-    private int row;
+    MUsuario musuario = new MUsuario();
 
     /**
      * Creates new form FrmProgramas
      */
-    public FrmConsultaPInstructor() {
+    public FrmConsultaCapacitacionesUsr() {
         initComponents();
-        mostrarPersonalEnto();
+        txtBuscarUsuario.setText(musuario.idUsuarioLogin);
+        mostrarCapacitacionesUsr();
     }
 
     /**
@@ -32,9 +32,9 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaEntrenamientos = new javax.swing.JTable();
-        lblTEntrenamientos = new javax.swing.JLabel();
-        lblTotalEntrenamientos = new javax.swing.JLabel();
+        tablaCapacitacionesUsr = new javax.swing.JTable();
+        lblTCapacitaciones = new javax.swing.JLabel();
+        lblTotalCapacitaciones = new javax.swing.JLabel();
         lblBuscarUsuario = new javax.swing.JLabel();
         txtBuscarUsuario = new javax.swing.JTextField();
         btnBuscarUsuario = new javax.swing.JButton();
@@ -44,15 +44,15 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Consulta entrenamientos");
+        setTitle("Consulta capacitaciones");
         setToolTipText("");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de entrenamientos"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de capacitaciones"));
         jPanel2.setPreferredSize(new java.awt.Dimension(650, 600));
 
-        tablaEntrenamientos.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCapacitacionesUsr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,24 +63,17 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablaEntrenamientos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        tablaEntrenamientos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaEntrenamientosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tablaEntrenamientos);
+        tablaCapacitacionesUsr.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jScrollPane1.setViewportView(tablaCapacitacionesUsr);
 
-        lblTEntrenamientos.setText("Total entrenamientos:");
+        lblTCapacitaciones.setText("Total capacitaciones:");
 
         lblBuscarUsuario.setText("Id Usuario:");
 
+        txtBuscarUsuario.setEnabled(false);
+
         btnBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        btnBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarUsuarioActionPerformed(evt);
-            }
-        });
+        btnBuscarUsuario.setEnabled(false);
 
         btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.gif"))); // NOI18N
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -91,11 +84,7 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
 
         btnUsrCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         btnUsrCancelar.setText("Limpiar");
-        btnUsrCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsrCancelarActionPerformed(evt);
-            }
-        });
+        btnUsrCancelar.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -107,12 +96,12 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTEntrenamientos)
+                        .addComponent(lblTCapacitaciones)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTotalEntrenamientos, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblTotalCapacitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblBuscarUsuario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,21 +114,22 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblBuscarUsuario)
-                            .addComponent(txtBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                    .addComponent(btnUsrCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBuscarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblBuscarUsuario)))
+                        .addComponent(btnBuscarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                        .addComponent(btnUsrCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTEntrenamientos)
-                    .addComponent(lblTotalEntrenamientos, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblTCapacitaciones)
+                    .addComponent(lblTotalCapacitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,51 +152,23 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaEntrenamientosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEntrenamientosMouseClicked
-        
-        enableForm();
-        row = tablaEntrenamientos.rowAtPoint(evt.getPoint());
-
-    }//GEN-LAST:event_tablaEntrenamientosMouseClicked
-
-    private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
-        String idUsr = txtBuscarUsuario.getText().trim();
-        if (!idUsr.equals("")) {
-            DefaultTableModel modelo;
-            MEntrenamiento mentrenamiento = new MEntrenamiento();
-            modelo = mentrenamiento.buscarUsuario(idUsr);
-            if(modelo.getRowCount() >= 1){
-                System.out.println("Usuario con identificacion " + idUsr + " encontrado!!!");
-                tablaEntrenamientos.setModel(modelo);
-                Integer cantEntrenamientos = tablaEntrenamientos.getRowCount();
-                lblTotalEntrenamientos.setText(String.valueOf(cantEntrenamientos));
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "El usuario " + idUsr + " no se encontró!!!","Busqueda de usuario",JOptionPane.INFORMATION_MESSAGE);
-                txtBuscarUsuario.requestFocus();
-                mostrarPersonalEnto();
-            }
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "El usuario " + idUsr + " no se encontró!!!","Busqueda de usuario",JOptionPane.INFORMATION_MESSAGE);
-            txtBuscarUsuario.requestFocus();
-            mostrarPersonalEnto();
-        }
-    }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
-
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnInicioActionPerformed
 
-    private void btnUsrCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsrCancelarActionPerformed
-        txtBuscarUsuario.setText("");
-        mostrarPersonalEnto();
-    }//GEN-LAST:event_btnUsrCancelarActionPerformed
-        
-    void enableForm(){
-        txtBuscarUsuario.setEnabled(true);
-        btnBuscarUsuario.setEnabled(true);
-        btnInicio.setEnabled(true);
+    public void mostrarCapacitacionesUsr() {
+        try {
+            DefaultTableModel modelo;
+            MCapacitacion mcapacitacion = new MCapacitacion();
+            modelo = mcapacitacion.buscarUsuario(musuario.idUsuarioLogin);
+            tablaCapacitacionesUsr.setModel(modelo);
+            Integer cantCapacitaciones = tablaCapacitacionesUsr.getRowCount();
+            lblTotalCapacitaciones.setText(String.valueOf(cantCapacitaciones));
+	} catch (Exception e) {
+            System.out.println("Error al consultar la BD!!!" + e);
+	}
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton btnBuscarUsuario;
     private static javax.swing.JButton btnInicio;
@@ -214,23 +176,10 @@ public class FrmConsultaPInstructor extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBuscarUsuario;
-    private javax.swing.JLabel lblTEntrenamientos;
-    private javax.swing.JLabel lblTotalEntrenamientos;
-    private javax.swing.JTable tablaEntrenamientos;
+    private javax.swing.JLabel lblTCapacitaciones;
+    private javax.swing.JLabel lblTotalCapacitaciones;
+    private javax.swing.JTable tablaCapacitacionesUsr;
     private static javax.swing.JTextField txtBuscarUsuario;
     // End of variables declaration//GEN-END:variables
-
-    public void mostrarPersonalEnto() {
-        try {
-            DefaultTableModel modelo;
-            MEntrenamiento mentrenamiento = new MEntrenamiento();
-            modelo = mentrenamiento.consultarEntrenamientos();
-            tablaEntrenamientos.setModel(modelo);
-            Integer cantEntrenamientos = tablaEntrenamientos.getRowCount();
-            lblTotalEntrenamientos.setText(String.valueOf(cantEntrenamientos));
-	} catch (Exception e) {
-            System.out.println("Error al consultar la BD!!!" + e);
-	}
-    }
 
 }

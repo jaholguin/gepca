@@ -213,7 +213,7 @@ public class FrmLogin extends javax.swing.JFrame {
                     FrmInicio.mnConfig.setEnabled(false);
                     FrmInicio.mnCoordinador.setEnabled(false);
                     FrmInicio.mnInstructor.setEnabled(false);
-                    FrmInicio.mnIConsultaPersonalCoor.setEnabled(false);
+                    FrmInicio.mnIConsultaPNoDisp.setEnabled(false);
 		}
             } 
             else {

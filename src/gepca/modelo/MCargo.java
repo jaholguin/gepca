@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -50,6 +51,52 @@ public class MCargo {
         }
     }
     
+    public DefaultComboBoxModel cargarCargos(){
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        sSQL = "SELECT cod_cargo from cargo ORDER BY cod_cargo ASC;";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while (rs.next()) {
+                modelo.addElement(rs.getObject("cod_cargo"));
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultTableModel consultarCargosHis(){
+        DefaultTableModel modelo;
+        String[] titulos = { "Cédula", "Nombre", "Apellido", "Cod. Cargo", "Cargo", "Fecha Cargo" };
+        String[] registro = new String[6];
+        totalregistros = 0;
+        modelo = new DefaultTableModel(null, titulos);
+        sSQL = "SELECT CH.personal_num_cedula, P.nombre, P.apellido, CH.cargo_cod_cargo, CA.cargo, CH.fec_cargo from cargo_his CH "
+                + "INNER JOIN personal P ON P.num_cedula=CH.personal_num_cedula "
+                + "INNER JOIN cargo CA ON CA.cod_cargo=CH.cargo_cod_cargo "
+                + "ORDER BY CH.personal_num_cedula;";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while (rs.next()) {
+                registro[0] = rs.getString("personal_num_cedula");
+                registro[1] = rs.getString("nombre");
+                registro[2] = rs.getString("apellido");
+                registro[3] = rs.getString("cargo_cod_cargo");
+                registro[4] = rs.getString("cargo");
+                registro[5] = rs.getString("fec_cargo");
+                totalregistros += 1;
+                modelo.addRow(registro);
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
     public DefaultTableModel buscarCargo(String idCargo){
         DefaultTableModel modelo;
         String[] titulos = { "Cod. Cargo", "Nombre", "Grado", "Sector" };
@@ -65,6 +112,36 @@ public class MCargo {
                 registro[1] = rs.getString("cargo");
                 registro[2] = rs.getString("grado");
                 registro[3] = rs.getString("sector");
+                totalregistros += 1;
+                modelo.addRow(registro);
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultTableModel buscarUsuarioCargoHis(String idUsuario){
+        DefaultTableModel modelo;
+        String[] titulos = { "Cédula", "Nombre", "Apellido", "Cod. Cargo", "Cargo", "Fecha Cargo" };
+        String[] registro = new String[6];
+        totalregistros = 0;
+        modelo = new DefaultTableModel(null, titulos);
+        sSQL = "SELECT CH.personal_num_cedula, P.nombre, P.apellido, CH.cargo_cod_cargo, CA.cargo, CH.fec_cargo from cargo_his CH "
+                + "INNER JOIN personal P ON P.num_cedula=CH.personal_num_cedula "
+                + "INNER JOIN cargo CA ON CA.cod_cargo=CH.cargo_cod_cargo "
+                + "WHERE CH.personal_num_cedula='" + idUsuario + "' ORDER BY CH.personal_num_cedula;";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while (rs.next()) {
+                registro[0] = rs.getString("personal_num_cedula");
+                registro[1] = rs.getString("nombre");
+                registro[2] = rs.getString("apellido");
+                registro[3] = rs.getString("cargo_cod_cargo");
+                registro[4] = rs.getString("cargo");
+                registro[5] = rs.getString("fec_cargo");
                 totalregistros += 1;
                 modelo.addRow(registro);
             }
