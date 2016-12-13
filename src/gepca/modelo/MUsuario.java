@@ -1,5 +1,6 @@
 package gepca.modelo;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import gepca.controlador.CUsuario;
 import gepca.controlador.Conexion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -351,8 +355,8 @@ public class MUsuario {
             } else {
                 return false;
             }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "El id ingresado: " + usuario.getCedula() + " ya se encuentra registrado.\n" + ex,"Registro de usuario",JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
     }

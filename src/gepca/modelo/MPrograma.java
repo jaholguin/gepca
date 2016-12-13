@@ -10,7 +10,9 @@ import gepca.controlador.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,6 +43,22 @@ public class MPrograma {
                 registro[2] = rs.getString("duracion");
                 totalregistros += 1;
                 modelo.addRow(registro);
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultComboBoxModel cargarProgramas(){
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        sSQL = "SELECT cod_programa from programa ORDER BY cod_programa ASC;";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while (rs.next()) {
+                modelo.addElement(rs.getObject("cod_programa"));
             }
             return modelo;
         } catch (Exception e) {
@@ -90,8 +108,8 @@ public class MPrograma {
             } else {
                 return false;
             }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "El id ingresado: " + programa.getCodPrograma() + " ya se encuentra registrado.\n" + ex,"Registro de programa",JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
     }

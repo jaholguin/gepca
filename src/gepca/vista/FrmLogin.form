@@ -110,9 +110,6 @@
       </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPass">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="1234"/>
-      </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
       </AccessibilityProperties>
@@ -183,9 +180,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ADM"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cbUsrPerfil">
       <Properties>
@@ -198,7 +192,6 @@
             <StringItem index="4" value="PERSONAL"/>
           </StringArray>
         </Property>
-        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

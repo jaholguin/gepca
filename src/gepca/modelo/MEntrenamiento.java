@@ -5,8 +5,10 @@
  */
 package gepca.modelo;
 
+import gepca.controlador.CEntrenamiento;
 import gepca.controlador.Conexion;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -23,13 +25,39 @@ public class MEntrenamiento {
     private String sSQL = "";
     public Integer totalregistros;
     
+    public boolean insertarEntrenamiento(CEntrenamiento entrenamiento){
+        sSQL = "INSERT INTO programa_ento (fechaInicio, fechaFinal, personal_num_cedula, capacitacion_id_matricula, programa_cod_programa, programa_entocol)"
+                + "VALUES (?,?,?,?,?,?)";
+        try {
+            PreparedStatement pst = cn.prepareStatement(sSQL);
+
+            pst.setString(1, entrenamiento.getFechaInicio().toString());
+            pst.setString(2, entrenamiento.getFechaFin().toString());
+            pst.setString(3, entrenamiento.getCedula());
+            pst.setString(4, entrenamiento.getMatricula());
+            pst.setString(5, entrenamiento.getPrograma());
+            pst.setString(6, entrenamiento.getEstado());
+            
+            int n = pst.executeUpdate();
+
+            if (n != 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return false;
+        }
+    }
+    
     public DefaultTableModel consultarEntrenamientos(){
         DefaultTableModel modelo;
-        String[] titulos = { "Cedula", "Nombre", "Apellido", "Id Programa", "Nombre Programa", "Id Curso", "Nombre Curso", "Fecha Inicio", "Fecha Fin" };
-        String[] registro = new String[9];
+        String[] titulos = { "Cedula", "Nombre", "Apellido", "Id Programa", "Nombre Programa", "Id Curso", "Nombre Curso", "Fecha Inicio", "Fecha Fin", "Estado" };
+        String[] registro = new String[10];
         totalregistros = 0;
         modelo = new DefaultTableModel(null, titulos);
-        sSQL = "SELECT PE.personal_num_cedula, P.nombre, P.apellido, PE.programa_cod_programa, PR.programa, CA.curso_id_curso, CU.nombreCurso, PE.fechaInicio, PE.fechaFinal from programa_ento PE "
+        sSQL = "SELECT PE.personal_num_cedula, P.nombre, P.apellido, PE.programa_cod_programa, PR.programa, CA.curso_id_curso, CU.nombreCurso, PE.fechaInicio, PE.fechaFinal, PE.programa_entocol from programa_ento PE "
                 + "INNER JOIN personal P ON P.num_cedula=PE.personal_num_cedula "
                 + "INNER JOIN programa PR ON PR.cod_programa=PE.programa_cod_programa "
                 + "INNER JOIN capacitacion CA ON CA.id_matricula=PE.capacitacion_id_matricula "
@@ -48,6 +76,7 @@ public class MEntrenamiento {
                 registro[6] = rs.getString("nombreCurso");
                 registro[7] = rs.getString("fechaInicio");
                 registro[8] = rs.getString("fechaFinal");
+                registro[9] = rs.getString("programa_entocol");
                 totalregistros += 1;
                 modelo.addRow(registro);
             }

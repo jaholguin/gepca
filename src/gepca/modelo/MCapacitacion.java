@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -70,6 +71,22 @@ public class MCapacitacion {
                 registro[5] = rs.getString("puntaje");
                 totalregistros += 1;
                 modelo.addRow(registro);
+            }
+            return modelo;
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return null;
+        }
+    }
+    
+    public DefaultComboBoxModel cargarMatriculas(){
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        sSQL = "SELECT id_matricula from capacitacion ORDER BY id_matricula ASC;";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while (rs.next()) {
+                modelo.addElement(rs.getObject("id_matricula"));
             }
             return modelo;
         } catch (Exception e) {
