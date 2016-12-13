@@ -4,7 +4,15 @@
 
 * El primer paso es importar la base de datos MySQL, el script se encuentra en la ruta \\gepca\dist\bds_gepca.sql
 * Una vez importada la base de datos, en la misma ruta \\gepca\dist\ se ejecuta el .jar con nombre "gepca.jar" con doble clic o por linea de comandos con el comando java -jar "gepca.jar" 
-* Los usuarios por defecto son admin para Coordinador, intructor y academico, todos tienen la misma contraseña "admin123" y se encuentra por defecto al iniciar el programa en el formulario de login
+* A continuación se relacionan usuarios de prueba para cada uno de los roles del sistema:
+
+| Usuario | Perfil | Contraseña |
+| --- | --- | --- |
+| ADM | ADMINISTRADOR | 1234 |
+| CO | COORDINADOR | 1234 |
+| LA | INSTRUCTOR | 1234 |
+| AC | ACADEMICO | 1234 |
+| PP | PERSONAL | 1234 |
 
 
 When you build an Java application project that has a main class, the IDE
