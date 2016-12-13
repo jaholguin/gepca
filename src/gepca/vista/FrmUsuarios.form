@@ -539,6 +539,7 @@
               <Image iconType="3" name="/imagenes/eliminar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
+            <Property name="toolTipText" type="java.lang.String" value="No es posible eliminar usuarios por restricci&#xf3;n inicial del sistema"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>

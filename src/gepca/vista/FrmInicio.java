@@ -43,12 +43,13 @@ public class FrmInicio extends javax.swing.JFrame {
         mnIConsultaPersonalCoor = new javax.swing.JMenuItem();
         mnIConsultaCargosHis = new javax.swing.JMenuItem();
         mnInstructor = new javax.swing.JMenu();
+        mnIRegistroEntrenamiento = new javax.swing.JMenuItem();
         mnICursosInst = new javax.swing.JMenuItem();
         mnIProgramasInst = new javax.swing.JMenuItem();
-        mnIRegistroCalificacion = new javax.swing.JMenuItem();
         mnIConsultaCapacitacionInst = new javax.swing.JMenuItem();
         mnIConsultaPersonalInst = new javax.swing.JMenuItem();
         mnAcademico = new javax.swing.JMenu();
+        mnIRegistroCalificacion = new javax.swing.JMenuItem();
         mnIConsultaCapacitacionAcad = new javax.swing.JMenuItem();
         mnIConsultaProgramasAcad = new javax.swing.JMenuItem();
         mnIConsultaCursoAcad = new javax.swing.JMenuItem();
@@ -175,6 +176,15 @@ public class FrmInicio extends javax.swing.JFrame {
         mnInstructor.setText("Instructor");
         mnInstructor.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
 
+        mnIRegistroEntrenamiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calificacion.png"))); // NOI18N
+        mnIRegistroEntrenamiento.setText("Registro entrenamiento");
+        mnIRegistroEntrenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIRegistroEntrenamientoActionPerformed(evt);
+            }
+        });
+        mnInstructor.add(mnIRegistroEntrenamiento);
+
         mnICursosInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cursos.jpg"))); // NOI18N
         mnICursosInst.setText("Cursos");
         mnICursosInst.addActionListener(new java.awt.event.ActionListener() {
@@ -193,15 +203,6 @@ public class FrmInicio extends javax.swing.JFrame {
         });
         mnInstructor.add(mnIProgramasInst);
 
-        mnIRegistroCalificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calificacion.png"))); // NOI18N
-        mnIRegistroCalificacion.setText("Registro calificación");
-        mnIRegistroCalificacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnIRegistroCalificacionActionPerformed(evt);
-            }
-        });
-        mnInstructor.add(mnIRegistroCalificacion);
-
         mnIConsultaCapacitacionInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
         mnIConsultaCapacitacionInst.setText("Consulta Capacitaciones");
         mnIConsultaCapacitacionInst.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +213,7 @@ public class FrmInicio extends javax.swing.JFrame {
         mnInstructor.add(mnIConsultaCapacitacionInst);
 
         mnIConsultaPersonalInst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consulta_usr.png"))); // NOI18N
-        mnIConsultaPersonalInst.setText("Consulta Personal");
+        mnIConsultaPersonalInst.setText("Consulta Personal En Entrenamiento");
         mnIConsultaPersonalInst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnIConsultaPersonalInstActionPerformed(evt);
@@ -225,6 +226,15 @@ public class FrmInicio extends javax.swing.JFrame {
         mnAcademico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mnuAcademico.png"))); // NOI18N
         mnAcademico.setText("Académico");
         mnAcademico.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+
+        mnIRegistroCalificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calificacion.png"))); // NOI18N
+        mnIRegistroCalificacion.setText("Registro calificación");
+        mnIRegistroCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIRegistroCalificacionActionPerformed(evt);
+            }
+        });
+        mnAcademico.add(mnIRegistroCalificacion);
 
         mnIConsultaCapacitacionAcad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultaCapacitacion.png"))); // NOI18N
         mnIConsultaCapacitacionAcad.setText("Consulta Capacitaciones");
@@ -456,6 +466,13 @@ public class FrmInicio extends javax.swing.JFrame {
         frmconsultcursoacad.setVisible(true);
     }//GEN-LAST:event_mnIConsultaCursoAcadActionPerformed
 
+    private void mnIRegistroEntrenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIRegistroEntrenamientoActionPerformed
+        FrmRegistroEntrenamientos frmregistroento = new FrmRegistroEntrenamientos();
+        inicio.add(frmregistroento);
+        frmregistroento.toFront();
+        frmregistroento.setVisible(true);
+    }//GEN-LAST:event_mnIRegistroEntrenamientoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -514,8 +531,9 @@ public class FrmInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnICursosInst;
     public static javax.swing.JMenuItem mnIPersonal;
     private javax.swing.JMenuItem mnIProgramasInst;
-    private javax.swing.JMenuItem mnIRegistroCalificacion;
+    public static javax.swing.JMenuItem mnIRegistroCalificacion;
     private javax.swing.JMenuItem mnIRegistroCargoHis;
+    public static javax.swing.JMenuItem mnIRegistroEntrenamiento;
     private javax.swing.JMenuItem mnIRegistroVacaciones;
     public static javax.swing.JMenu mnInicio;
     public static javax.swing.JMenu mnInstructor;

@@ -55,7 +55,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblUsuario.setText("Usuario:");
 
-        txtPass.setText("1234");
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassKeyPressed(evt);
@@ -100,10 +99,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         lblImagenLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login.jpg"))); // NOI18N
 
-        txtUsuario.setText("ADM");
-
         cbUsrPerfil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACADEMICO", "ADMINISTRADOR", "COORDINADOR", "INSTRUCTOR", "PERSONAL" }));
-        cbUsrPerfil.setSelectedIndex(1);
 
         lblPerfil.setText("Perfil:");
 
@@ -215,6 +211,7 @@ public class FrmLogin extends javax.swing.JFrame {
 		}
                 if (perfil.equals("PERSONAL")) {
                     FrmInicio.mnAcademico.setEnabled(true);
+                    FrmInicio.mnIRegistroCalificacion.setEnabled(false);
                     FrmInicio.mnConfig.setEnabled(false);
                     FrmInicio.mnCoordinador.setEnabled(false);
                     FrmInicio.mnInstructor.setEnabled(false);

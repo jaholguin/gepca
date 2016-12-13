@@ -10,6 +10,7 @@ import gepca.controlador.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -170,8 +171,8 @@ public class MCargo {
             } else {
                 return false;
             }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "El id ingresado: " + cargo.getCodCargo() + " ya se encuentra registrado.\n" + ex,"Registro de cargo",JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
     }

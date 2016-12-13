@@ -290,6 +290,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
 
         btnUsrEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         btnUsrEliminar.setText("Eliminar");
+        btnUsrEliminar.setToolTipText("No es posible eliminar usuarios por restricción inicial del sistema");
         btnUsrEliminar.setEnabled(false);
         btnUsrEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,7 +372,7 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     private void tablaUsrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsrMouseClicked
         
         enableForm();
-        btnUsrEliminar.setEnabled(true);
+        btnUsrEliminar.setEnabled(false);
         txtUsrCedula.setEnabled(false);
         btnUsrNuevo.setEnabled(false);
         action = "edit";
@@ -391,10 +392,11 @@ public class FrmUsuarios extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablaUsrMouseClicked
 
     private void btnUsrEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsrEliminarActionPerformed
-        btnUsrEliminar.setEnabled(false);
+        // Eliminación de usuarios deshabilitada por restricción inicial del sistema
+        /*btnUsrEliminar.setEnabled(false);
         limpiar();
         eliminarUsuario();
-        mostrarUsuarios();
+        mostrarUsuarios();*/
     }//GEN-LAST:event_btnUsrEliminarActionPerformed
 
     private void btnUsrBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsrBuscarActionPerformed
